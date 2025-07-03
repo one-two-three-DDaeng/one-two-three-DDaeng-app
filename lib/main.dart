@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:one_two_three_ddaeng_fe/presentaion/home/home_view.dart';
+import 'package:one_two_three_ddaeng_fe/utils/custom_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,25 +12,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('hi'),
+    return ScreenUtilInit(
+      designSize: const Size(360, 800),
+      builder: (context, child) => MaterialApp(
+        title: 'Flutter Demo',
+        theme: customTheme(context),
+        home: const HomeView(),
       ),
     );
   }
